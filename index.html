@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/0466253da8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <head>
+      
+    </head>
+    <main>
+      <div id="board" class="board">
+        <div class="cell" onclick="playerMove(0, event)"></div>
+        <div class="cell" onclick="playerMove(1, event)"></div>
+        <div class="cell" onclick="playerMove(2, event)"></div>
+        <div class="cell" onclick="playerMove(3, event)"></div>
+        <div class="cell" onclick="playerMove(4, event)"></div>
+        <div class="cell" onclick="playerMove(5, event)"></div>
+        <div class="cell" onclick="playerMove(6, event)"></div>
+        <div class="cell" onclick="playerMove(7, event)"></div>
+        <div class="cell" onclick="playerMove(8, event)"></div>
+      </div>
+    </main>
+    <div class="resultModal">
+      <div class="fullback"></div>
+      <div class="modalContent">
+        <h1 class="wonTurn">x takes round</h1>
+        <div class="actions">
+          <button id="quit">quit</button>
+          <button id="next">next round</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
