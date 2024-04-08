@@ -11,12 +11,70 @@
   /* --cell: rgb(1, 39, 54); */
   --cell: rgb(0, 43, 59);
 }
-
+body {
+  overflow: hidden;
+  width: 100vw;
+}
 main {
+  width: 100%;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--main);
+}
+
+header {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.icons {
+  display: flex;
+  font-size: 30px;
+  gap: 12px;
+  cursor: pointer;
+}
+.icons i:first-child {
+  color: rgb(30, 210, 255);
+  font-size: 35px;
+}
+.icons i:last-child {
+  color: orange;
+}
+
+.turnInfo {
+  padding: 7px 25px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  background-color: var(--cell);
+  color: rgb(199, 199, 199);
+}
+.turnInfo i {
+  font-size: 28px;
+}
+
+.restart {
+  width: 50px;
+  height: 45px;
+  background-color: rgb(199, 199, 199);
+  border-radius: 8px;
   display: grid;
   place-content: center;
-  background-color: var(--main);
+  font-size: 24px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  cursor: pointer;
 }
 
 .board {
@@ -32,14 +90,15 @@ main {
   background-color: var(--cell);
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
   display: grid;
   place-content: center;
   font-size: 55px;
   font-weight: bolder;
 }
+
 .cell.x {
   color: rgb(30, 210, 255);
   font-size: 66px;
@@ -56,6 +115,36 @@ main {
 .won.x {
   background-color: rgb(30, 210, 255);
   color: var(--main);
+}
+
+.bottomInfo {
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3px 0;
+}
+
+.bottomInfo span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.bottomInfo p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.bottomInfo.x {
+  background-color: rgb(30, 210, 255);
+}
+.bottomInfo.draw {
+  background-color: rgb(199, 199, 199);
+}
+.bottomInfo.o {
+  background-color: orange;
 }
 
 .resultModal {
@@ -96,6 +185,16 @@ main {
 }
 .modalContent h1 {
   font-size: 45px;
+  text-transform: uppercase;
+  color: white;
+}
+.wonTurn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.wonTurn i {
+  font-size: 60px;
 }
 .modalContent.x h1 {
   color: rgb(30, 210, 255);
@@ -111,12 +210,32 @@ main {
   font-size: 18px;
   font-family: Poppins;
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-.modalContent .actions button:last-child{
-    background-color: orange;
+.modalContent .actions button:last-child {
+  background-color: orange;
 }
-.modalContent .actions button:first-child{
-    background-color: rgb(199, 199, 199);
+.modalContent .actions button:first-child {
+  background-color: rgb(199, 199, 199);
+}
+
+@media (max-width: 412px) {
+  header {
+    padding: 10px 15px;
+    width: 100%;
+  }
+  .board {
+    width: 95%;
+    height: 380px;
+    margin: auto;
+  }
+  .wonTurn {
+    font-size: 35px !important;
+  }
+}
+@media (max-width: 380px) {
+  .board {
+    height: 350px;
+  }
 }
