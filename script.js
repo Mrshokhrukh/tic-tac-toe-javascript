@@ -3,18 +3,22 @@ let cells = document.querySelectorAll(".cell");
 let modalCont = document.querySelector(".modalContent");
 let oScore = document.querySelector(".oScore");
 let xScore = document.querySelector(".xScore");
-let drawScore = document.querySelector(".draw");
+let drawScore = document.querySelector(".drawScore");
 let quitBtn = document.getElementById("quit");
 let nextBtn = document.getElementById("next");
 let resetBtn = document.querySelector(".restart");
 
-// oScore.innerHTML = sessionStorage.getItem("oScore");
-// xScore.innerHTML = sessionStorage.getItem("xScore");
-// draw.innerHTML = sessionStorage.getItem("draw");
+// sessionStorage.setItem("oScore", JSON.stringify(0));
+// sessionStorage.setItem("xScore", JSON.stringify(0));
+// sessionStorage.getItem("draw");
 
 let x = sessionStorage.getItem("xScore");
 let o = sessionStorage.getItem("oScore");
 let draw = sessionStorage.getItem("draw");
+
+xScore.innerHTML = x;
+oScore.innerHTML = o;
+drawScore.innerHTML = draw;
 
 let currentPlayer = '<i class="fa-solid fa-xmark"></i>';
 let board = ["", "", "", "", "", "", "", "", ""];
@@ -42,14 +46,16 @@ function playerMove(index, e) {
       if (currentPlayer === '<i class="fa-solid fa-xmark"></i>') {
         modalCont.classList.add("x");
 
-        x = sessionStorage.getItem("xScore");
-        sessionStorage.setItem("xScore", x++);
+        x++;
+        sessionStorage.setItem("xScore", JSON.stringify(x));
 
+        x = sessionStorage.getItem("xScore");
         xScore.innerHTML = x;
       } else {
         modalCont.classList.add("o");
+        o++;
+        sessionStorage.setItem("oScore", JSON.stringify(o));
         o = sessionStorage.getItem("oScore");
-        sessionStorage.setItem("oScore", o++);
         oScore.innerHTML = o;
       }
 
@@ -59,6 +65,11 @@ function playerMove(index, e) {
         document.querySelector(".resultModal").classList.add("show");
       }, 1100);
     } else if (board.every((cell) => cell !== "")) {
+      draw++;
+      sessionStorage.setItem("draw", JSON.stringify(draw));
+      draw = sessionStorage.getItem("draw");
+      drawScore.innerHTML = draw;
+
       setTimeout(() => {
         document.querySelector(".resultModal").classList.add("show");
       }, 1100);
@@ -118,4 +129,9 @@ nextBtn.addEventListener("click", () => {
   });
   document.querySelector(".resultModal").classList.remove("show");
   board = ["", "", "", "", "", "", "", "", ""];
+});
+
+resetBtn.addEventListener("click", () => {
+  sessionStorage.clear();
+  window.location.reload();
 });
