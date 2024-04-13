@@ -5,6 +5,7 @@
   user-select: none !important;
   touch-action: none !important;
   font-family: Poppins;
+  outline: none !important;
 }
 
 :root {
