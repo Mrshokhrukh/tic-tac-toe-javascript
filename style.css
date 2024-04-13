@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   user-select: none !important;
+  touch-action: none !important;
   font-family: Poppins;
 }
 
@@ -87,6 +88,8 @@ header {
 }
 
 .cell {
+  user-select: none !important;
+  touch-action: none !important;
   background-color: var(--cell);
   border-radius: 8px;
   cursor: pointer;
